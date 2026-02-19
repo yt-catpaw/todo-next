@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "@/styles/todo/form.module.css";
+import type { SyntheticEvent } from "react";
 
 type Props = {
   onAdd: (title: string) => void;
@@ -10,7 +11,7 @@ type Props = {
 export default function TodoForm({ onAdd }: Props) {
   const [title, setTitle] = useState("");
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: SyntheticEvent) => {
     e.preventDefault();
     onAdd(title);
     setTitle("");
