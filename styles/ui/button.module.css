@@ -1,0 +1,16 @@
+:where(.button) {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+:where(.button):disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
