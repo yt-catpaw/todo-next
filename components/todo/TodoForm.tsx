@@ -30,7 +30,7 @@ export default function TodoForm({ onAdd }: Props) {
         />
       </label>
 
-      <Button className={styles.button} type="submit">
+      <Button className={styles.button} type="submit" variant="primary" size="md">
         追加
       </Button>
     </form>

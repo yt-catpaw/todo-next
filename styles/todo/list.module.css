@@ -53,15 +53,6 @@
 
 .delete {
   align-self: flex-end;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: #f7f2ea;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 6px 10px;
-  cursor: pointer;
 }
 
 @media (min-width: 768px) {

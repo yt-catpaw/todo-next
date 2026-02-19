@@ -34,6 +34,8 @@ export default function TodoList({ todos, onToggle, onDelete }: Props) {
           <Button
             className={styles.delete}
             type="button"
+            variant="danger"
+            size="sm"
             onClick={() => onDelete(t.id)}
             aria-label="削除"
           >
