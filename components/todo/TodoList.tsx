@@ -2,6 +2,7 @@
 
 import type { Todo } from "./TodoApp";
 import styles from "@/styles/todo/list.module.css";
+import Button from "@/components/ui/Button";
 
 type Props = {
   todos: Todo[];
@@ -30,14 +31,14 @@ export default function TodoList({ todos, onToggle, onDelete }: Props) {
             </span>
           </label>
 
-          <button
+          <Button
             className={styles.delete}
             type="button"
             onClick={() => onDelete(t.id)}
             aria-label="削除"
           >
             削除
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

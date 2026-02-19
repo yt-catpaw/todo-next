@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "@/styles/todo/form.module.css";
 import type { SyntheticEvent } from "react";
+import Button from "@/components/ui/Button";
 
 type Props = {
   onAdd: (title: string) => void;
@@ -29,9 +30,9 @@ export default function TodoForm({ onAdd }: Props) {
         />
       </label>
 
-      <button className={styles.button} type="submit">
+      <Button className={styles.button} type="submit">
         追加
-      </button>
+      </Button>
     </form>
   );
 }
