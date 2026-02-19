@@ -1,0 +1,107 @@
+.page {
+  --ink: #1e1b16;
+  --muted: #6a635a;
+  --card: #fffaf3;
+  --line: #e7ded1;
+  --accent: #0f8b8d;
+
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 56px;
+  color: var(--ink);
+  font-family: var(--font-geist-sans), "Geist", "Avenir Next", sans-serif;
+  background:
+    radial-gradient(900px 520px at 12% -12%, #f2e8d9 0%, transparent 60%),
+    radial-gradient(700px 520px at 88% 8%, #e5f1f1 0%, transparent 55%),
+    linear-gradient(180deg, #f9f5ef 0%, #f6f1ea 40%, #fbf9f6 100%);
+}
+
+.container {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow:
+    0 12px 30px rgba(30, 27, 22, 0.08),
+    0 2px 6px rgba(30, 27, 22, 0.06);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(26px, 7vw, 32px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: #f1ebe1;
+  border: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 48px 20px 80px;
+  }
+
+  .container {
+    width: min(100%, 760px);
+    border-radius: 24px;
+    padding: 28px;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: clamp(28px, 3.2vw, 36px);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --ink: #f2efe9;
+    --muted: #c3b9ab;
+    --card: #1f1b17;
+    --line: #3b342c;
+    --accent: #58c3c5;
+    background:
+      radial-gradient(900px 520px at 12% -12%, #2d251d 0%, transparent 60%),
+      radial-gradient(700px 520px at 88% 8%, #163233 0%, transparent 55%),
+      linear-gradient(180deg, #120f0c 0%, #1a1612 40%, #0f0c0a 100%);
+  }
+
+  .container {
+    box-shadow:
+      0 14px 36px rgba(0, 0, 0, 0.45),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .meta {
+    background: #2a241e;
+  }
+}
