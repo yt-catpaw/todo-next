@@ -3,15 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import TodoFilters from "./TodoFilters";
 import styles from "@/styles/todo/todo.module.css";
-
-export type Todo = {
-  id: string;
-  title: string;
-  done: boolean;
-};
-
-type Filter = "all" | "active" | "done";
+import type { Filter, Todo } from "./types";
 
 const STORAGE_KEY = "todo-next.todos";
 const defaultTodos: Todo[] = [
@@ -86,39 +80,7 @@ export default function TodoApp() {
 
         <TodoForm onAdd={addTodo} />
 
-        <div className={styles.filters}>
-          <button
-            className={
-              filter === "all" ? styles.filterButtonActive : styles.filterButton
-            }
-            type="button"
-            onClick={() => setFilter("all")}
-          >
-            All
-          </button>
-          <button
-            className={
-              filter === "active"
-                ? styles.filterButtonActive
-                : styles.filterButton
-            }
-            type="button"
-            onClick={() => setFilter("active")}
-          >
-            Active
-          </button>
-          <button
-            className={
-              filter === "done"
-                ? styles.filterButtonActive
-                : styles.filterButton
-            }
-            type="button"
-            onClick={() => setFilter("done")}
-          >
-            Done
-          </button>
-        </div>
+        <TodoFilters value={filter} onChange={setFilter} />
 
         <TodoList
           todos={filteredTodos}

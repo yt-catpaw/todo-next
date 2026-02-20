@@ -1,6 +1,6 @@
 "use client";
 
-import type { Todo } from "./TodoApp";
+import type { Todo } from "./types";
 import styles from "@/styles/todo/list.module.css";
 import Button from "@/components/ui/Button";
 
