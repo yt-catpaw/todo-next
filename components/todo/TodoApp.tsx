@@ -48,16 +48,13 @@ export default function TodoApp() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos, hasLoaded]);
 
-  const remainingCount = useMemo(
-    () => todos.filter((t) => !t.done).length,
-    [todos],
-  );
-
   const filteredTodos = useMemo(() => {
     if (filter === "active") return todos.filter((t) => !t.done);
     if (filter === "done") return todos.filter((t) => t.done);
     return todos;
   }, [filter, todos]);
+
+  const visibleCount = filteredTodos.length;
 
   const addTodo = (title: string) => {
     const trimmed = title.trim();
@@ -84,7 +81,7 @@ export default function TodoApp() {
       <section className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>Todo</h1>
-          <p className={styles.meta}>未完了: {remainingCount}</p>
+          <p className={styles.meta}>表示中: {visibleCount}</p>
         </header>
 
         <TodoForm onAdd={addTodo} />
