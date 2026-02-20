@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@/styles/todo/todo.module.css";
-import type { Filter } from "./types";
+import type { Filter } from "../types";
 
 type Props = {
   value: Filter;

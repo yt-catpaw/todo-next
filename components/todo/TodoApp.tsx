@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
-import TodoFilters from "./TodoFilters";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import TodoFilters from "./components/TodoFilters";
 import styles from "@/styles/todo/todo.module.css";
 import type { Filter, Todo } from "./types";
-import usePersistedTodos from "./usePersistedTodos";
+import usePersistedTodos from "./hooks/usePersistedTodos";
 
 export default function TodoApp() {
   const { todos, setTodos } = usePersistedTodos();

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { Todo } from "./types";
+import type { Todo } from "../types";
 
 const STORAGE_KEY = "todo-next.todos";
 const defaultTodos: Todo[] = [
