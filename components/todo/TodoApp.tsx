@@ -11,6 +11,8 @@ export type Todo = {
   done: boolean;
 };
 
+type Filter = "all" | "active" | "done";
+
 const STORAGE_KEY = "todo-next.todos";
 const defaultTodos: Todo[] = [
   { id: "1", title: "牛乳を買う", done: false },
@@ -20,6 +22,7 @@ const defaultTodos: Todo[] = [
 export default function TodoApp() {
   const [todos, setTodos] = useState<Todo[]>(() => defaultTodos);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [filter, setFilter] = useState<Filter>("all");
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -49,6 +52,12 @@ export default function TodoApp() {
     () => todos.filter((t) => !t.done).length,
     [todos],
   );
+
+  const filteredTodos = useMemo(() => {
+    if (filter === "active") return todos.filter((t) => !t.done);
+    if (filter === "done") return todos.filter((t) => t.done);
+    return todos;
+  }, [filter, todos]);
 
   const addTodo = (title: string) => {
     const trimmed = title.trim();
@@ -80,7 +89,45 @@ export default function TodoApp() {
 
         <TodoForm onAdd={addTodo} />
 
-        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <div className={styles.filters}>
+          <button
+            className={
+              filter === "all" ? styles.filterButtonActive : styles.filterButton
+            }
+            type="button"
+            onClick={() => setFilter("all")}
+          >
+            All
+          </button>
+          <button
+            className={
+              filter === "active"
+                ? styles.filterButtonActive
+                : styles.filterButton
+            }
+            type="button"
+            onClick={() => setFilter("active")}
+          >
+            Active
+          </button>
+          <button
+            className={
+              filter === "done"
+                ? styles.filterButtonActive
+                : styles.filterButton
+            }
+            type="button"
+            onClick={() => setFilter("done")}
+          >
+            Done
+          </button>
+        </div>
+
+        <TodoList
+          todos={filteredTodos}
+          onToggle={toggleTodo}
+          onDelete={deleteTodo}
+        />
       </section>
     </main>
   );

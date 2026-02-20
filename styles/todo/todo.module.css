@@ -59,6 +59,41 @@
   border: 1px solid var(--line);
 }
 
+.filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f7f2ea;
+  margin-bottom: 16px;
+}
+
+.filterButton {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filterButtonActive {
+  border: none;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+
 @media (min-width: 768px) {
   .page {
     padding: 48px 20px 80px;
@@ -103,5 +138,14 @@
 
   .meta {
     background: #2a241e;
+  }
+
+  .filters {
+    background: #2a241e;
+  }
+
+  .filterButtonActive {
+    background: #f2efe9;
+    color: #1f1b17;
   }
 }
