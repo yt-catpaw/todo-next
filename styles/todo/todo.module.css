@@ -59,6 +59,26 @@
   border: 1px solid var(--line);
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.helpButton {
+  white-space: nowrap;
+}
+
+.helpBody {
+  display: grid;
+  gap: 8px;
+}
+
+.helpBody p {
+  margin: 0;
+}
+
 .filters {
   display: inline-flex;
   align-items: center;
