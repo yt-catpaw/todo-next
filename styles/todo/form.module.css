@@ -59,8 +59,23 @@
 @media (min-width: 768px) {
   .form {
     grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "field button"
+      "error error";
     align-items: end;
     gap: 14px 12px;
+  }
+
+  .label {
+    grid-area: field;
+  }
+
+  .error {
+    grid-area: error;
+  }
+
+  .button {
+    grid-area: button;
   }
 
   .button {

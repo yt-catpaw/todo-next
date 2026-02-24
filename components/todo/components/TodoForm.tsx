@@ -55,12 +55,13 @@ export default function TodoForm({ onAdd }: Props) {
           aria-describedby={errorMessage ? errorId : undefined}
           {...register("title")}
         />
-        {errorMessage && (
-          <span className={styles.error} role="alert" id={errorId}>
-            {errorMessage}
-          </span>
-        )}
       </label>
+
+      {errorMessage && (
+        <span className={styles.error} role="alert" id={errorId}>
+          {errorMessage}
+        </span>
+      )}
 
       <Button className={styles.button} type="submit" variant="primary" size="md">
         追加
